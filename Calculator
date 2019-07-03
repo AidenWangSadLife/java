@@ -1,0 +1,52 @@
+public class Main
+{
+  public static void main (String[]args)
+  {
+      while (true){
+    
+    double result = 1;
+      System.out.println ("please input two numbers");
+    double inputNumber1 = Double.parseDouble (System.console ().readLine ());
+    double inputNumber2 = Double.parseDouble (System.console ().readLine ());
+      System.out.println
+      ("please input 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division, 5 for power");
+    int operation = Integer.parseInt (System.console ().readLine ());
+    if (operation == 1)
+      {
+	    result = inputNumber1 + inputNumber2;
+      }
+    else if (operation == 2)
+      {
+	    result = inputNumber1 - inputNumber2;
+      }
+    else if (operation == 3)
+      {
+	    result = inputNumber1 * inputNumber2;
+      }
+    else if (operation == 4)
+      {
+	    result = inputNumber1 / inputNumber2;
+      }
+     else if (operation == 5)
+     {
+
+        for (int i = 0; i<inputNumber2; i++){
+            result = result*inputNumber1;
+        }
+        result =result;
+     }
+    System.out.println (result);
+    System.out.println ("type 1 to continue, type 0 to exit");
+    int check = Integer.parseInt (System.console ().readLine ());
+    
+        if (check == 1){
+            
+        }else{
+            break; 
+        }
+    }
+    
+    
+    
+  }
+}
