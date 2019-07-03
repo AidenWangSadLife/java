@@ -1,0 +1,16 @@
+public class Main{
+    static double calculateSquare(double x, int power){
+        double result =1;
+        for (int i = 0; i<power; i++){
+            result = result*x;
+        }
+        return result;
+        
+    }
+    
+    public static void main(String[] args){
+        double input1 = Double.parseDouble(System.console().readLine());
+        int input2 = Integer.parseInt(System.console().readLine());
+        System.out.println(calculateSquare(input1, input2));
+    }
+}
