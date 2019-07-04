@@ -1,0 +1,40 @@
+import java.util.Random;
+public class Main{
+public static void main(String[] args) {
+    Random rand = new Random();
+    int wordtries = 0;
+    int lettertries = 0;
+    String wordlist[] = new String[]{"dumb","shtupid","sad","ooof","words","garbage","dawg","brain","lol","yeet"};
+    int x = rand.nextInt(9);
+    
+    while(wordtries<3 && lettertries<4){
+    System.out.println ("Guess a letter or word");
+    String YourWord = (System.console ().readLine ());
+    if (YourWord.length() == 1){
+        int same = 0;
+        for (int i = 0; i<wordlist[x].length(); i++){
+            char Gchar = wordlist[x].charAt(i);
+            if(Gchar==YourWord.charAt(0)){
+                same++;
+            }else{
+                
+            }
+        }
+        if (same == 0){
+            System.out.println("the letter doesn't appear");
+            lettertries++;
+        }else{
+            System.out.println("Your Letter appeared "+ same +" times.");
+        }
+    }else if (YourWord.equals(wordlist[x])){
+        System.out.println("Congrats, BOII, U gotiit Right!");
+        break;
+    }else if(wordtries>2 || lettertries>3){
+        break;
+    }else{
+        System.out.println("You so bad, sucker, try again");
+        wordtries++;
+    }
+}
+}
+}
