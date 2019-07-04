@@ -1,0 +1,35 @@
+import java.util.Random;
+public class Main{
+public static void main(String[] args) {
+    
+    String wordlist[] = new String[]{"dumb","shtupid","sad","ooof","words","garbage","dawg","brain","lol","yeet"};
+    int a = wordlist.length -1;
+    int Wordlength = 0;
+    for (;a>0; a--){
+        if(wordlist[a].length()<wordlist[a-1].length()){
+            Wordlength = wordlist[a-1].length();
+        }else{
+            Wordlength = wordlist[a].length();
+        }
+    }
+    int numstar = Wordlength + 4;
+    for (int i = 0; i<numstar; i++){
+        System.out.print("*");
+    }
+    System.out.println("");
+    for (int i = 0; i<10; i++){
+        System.out.print("* "+wordlist[i]);
+        int b = Wordlength - wordlist[i].length() + 1;
+        for(int c = 0; c<b; c++){
+            System.out.print(" ");
+        }
+        System.out.print("*");
+        System.out.println("");
+    }
+    for (int i = 0; i<numstar; i++){
+        System.out.print("*");
+    }
+    
+    
+}
+}
