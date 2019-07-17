@@ -2,39 +2,110 @@ import java.util.Random;
 public class Main{
 public static void main(String[] args) {
     Random rand = new Random();
-    int wordtries = 0;
-    int lettertries = 0;
-    String wordlist[] = new String[]{"dumb","shtupid","sad","ooof","words","garbage","dawg","brain","lol","yeet"};
+    int lives = 6;
+    String wordlist[] = new String[]{"mom","nice","sad","awesome","words","basketball","math","brain","science","apple"};
     int x = rand.nextInt(9);
+    int numletter = wordlist[x].length();
+    char theWord[] = new char[]{' ',' ',' ',' ',' ',' ',' ',' ',' ',' '};
+    for(int i = 0; i<numletter; i++){
+        theWord[i] = '-';
+    }
     
-    while(wordtries<3 && lettertries<4){
-    System.out.println ("Guess a letter or word");
-    String YourWord = (System.console ().readLine ());
-    if (YourWord.length() == 1){
-        int same = 0;
-        for (int i = 0; i<wordlist[x].length(); i++){
-            char Gchar = wordlist[x].charAt(i);
-            if(Gchar==YourWord.charAt(0)){
-                same++;
+    char prevGuess = ' ';
+    while(lives>0){
+        System.out.println ("Guess a letter");
+        for(int i = 0; i<numletter; i++){
+            System.out.print(theWord[i]);
+        }
+        System.out.println("");
+        String YourWord = (System.console ().readLine ());
+        
+        while(prevGuess == YourWord.charAt(0)){
+            System.out.println("You have already guessed that, PLS try again!!!");
+            YourWord = (System.console ().readLine ());
+        }
+        prevGuess = YourWord.charAt(0);
+        int s;
+        for(s = 0; s<numletter; s++){
+                if(theWord[s] != '-'){
+                }else{
+                break;
+                }
+        }
+        if(s == numletter - 1){
+            YourWord = wordlist[x];
+        }else{
+            
+        }
+    
+        if (YourWord.length() == 1){
+            int same = 0;
+            for (int i = 0; i<wordlist[x].length(); i++){
+                char Gchar = wordlist[x].charAt(i);
+                if(Gchar==YourWord.charAt(0)){
+                    theWord[i] = YourWord.charAt(0);
+                    same++;
+                }else{
+                    
+                }
+            }
+            if (same == 0){
+                System.out.println("Wrong!!!");
+                lives--;
             }else{
                 
             }
-        }
-        if (same == 0){
-            System.out.println("the letter doesn't appear");
-            lettertries++;
+            
+            if(lives == 6){
+                System.out.println("   O   ");
+                System.out.println(" __|__ ");
+                System.out.println("   |   ");
+                System.out.println(" _| |_ ");
+            }else if(lives == 5){
+                System.out.println("   O   ");
+                System.out.println(" __|__ ");
+                System.out.println("   |   ");
+                System.out.println(" _|    ");
+            }else if(lives == 4){
+                System.out.println("   O   ");
+                System.out.println(" __|__ ");
+                System.out.println("   |   ");
+                System.out.println("       ");
+            }else if(lives == 3){
+                System.out.println("   O   ");
+                System.out.println(" __|   ");
+                System.out.println("   |   ");
+                System.out.println("       ");
+            }else if(lives == 2){
+                System.out.println("   O   ");
+                System.out.println("   |   ");
+                System.out.println("   |   ");
+                System.out.println("       ");
+            }else if(lives == 1){
+                System.out.println("   O   ");
+                System.out.println("       ");
+                System.out.println("       ");
+                System.out.println("       ");
+            }else if(lives == 0){
+                System.out.println("       ");
+                System.out.println("       ");
+                System.out.println("       ");
+                System.out.println("       ");
+            }
+            
+        }else if (YourWord.equals(wordlist[x])){
+            System.out.println("Congrats, U gotiit Right!");
+            System.out.println("the word is "+wordlist[x]);
+            break;
         }else{
-            System.out.println("Your Letter appeared "+ same +" times.");
+            
         }
-    }else if (YourWord.equals(wordlist[x])){
-        System.out.println("Congrats, BOII, U gotiit Right!");
-        break;
-    }else if(wordtries>2 || lettertries>3){
-        break;
-    }else{
-        System.out.println("You so bad, sucker, try again");
-        wordtries++;
     }
-}
+    if(lives == 0){
+            System.out.println("You're Died sucker, Real man never dies.");
+            System.out.println("the word is "+wordlist[x]);
+        }else{
+            
+        }
 }
 }
